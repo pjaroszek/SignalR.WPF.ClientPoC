@@ -13,6 +13,16 @@
             this.eventAgregator.GetEvent<ConnectSignalRServerRequestEvent>().Publish();
         });
 
+        public ICommand DisconnectCommand => new DelegateCommand(
+            () =>
+            {
+                this.eventAgregator.GetEvent<DisconnectSignalRServerRequestEvent>().Publish();
+            });
+
+        public ICommand SendMessageCommand => new DelegateCommand(() =>
+        {
+            this.eventAgregator.GetEvent<SendMessageSignalRServerRequestEvent>().Publish(Message);
+        });
 
     }
 }

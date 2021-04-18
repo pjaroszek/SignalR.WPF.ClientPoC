@@ -166,7 +166,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Events\ConnectSignalRServerRequestEvent.cs" />
+    <Compile Include="Events\DisconnectSignalRServerRequestEvent.cs" />
+    <Compile Include="Events\SendMessageSignalRServerRequestEvent.cs" />
     <Compile Include="Interfaces\IBackgroundService.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Services\ShellBackgroundService.cs" />
     <Compile Include="ViewModels\ShellViewModel.Behaviors.cs" />
     <Compile Include="ViewModels\ShellViewModel.Bindings.cs" />
@@ -205,8 +208,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

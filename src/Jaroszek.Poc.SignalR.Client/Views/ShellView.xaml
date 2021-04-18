@@ -15,17 +15,54 @@
     md:DialogServiceViews.IsRegistered="True"
     mvvm:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
-        <Grid>
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="567*"/>
-            <ColumnDefinition Width="36*"/>
-            <ColumnDefinition Width="35*"/>
-            <ColumnDefinition Width="154*"/>
+            <ColumnDefinition Width="567*" />
+            <ColumnDefinition Width="36*" />
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="154*" />
         </Grid.ColumnDefinitions>
-        <Button Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="44,45,0,0" VerticalAlignment="Top" Width="120" Command="{Binding ConnectCommand}"/>
-        <Button Name="btnSend" Content="Send" HorizontalAlignment="Left" Margin="44,117,0,0" VerticalAlignment="Top" Width="120" Click="BtnSend_Click"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="44,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label Name="lblContent"  Content="Label" HorizontalAlignment="Left" Margin="44,152,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button
+            Name="btnConnect"
+            Width="120"
+            Margin="44,45,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding ConnectCommand}"
+            Content="Connect" />
+        <Button
+            Name="btnSend"
+            Width="120"
+            Margin="44,117,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding SendMessageCommand}"
+            Content="Send" />
+        <TextBox
+            Width="120"
+            Height="23"
+            Margin="44,80,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Text="{Binding Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            TextWrapping="Wrap" />
+        <Label
+            Name="lblContent"
+            Width="120"
+            Margin="44,152,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Label" />
+
+
+        <Button
+            Name="btnDisconnected"
+            Width="120"
+            Margin="44,45,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Command="{Binding DisconnectCommand}"
+            Content="Connect" />
 
     </Grid>
 </Window>
