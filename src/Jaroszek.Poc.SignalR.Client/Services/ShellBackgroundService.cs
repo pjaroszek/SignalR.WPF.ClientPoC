@@ -1,5 +1,6 @@
 ﻿namespace Jaroszek.Poc.SignalR.Client.Services
 {
+    using Jaroszek.Poc.SignalR.Client.Events;
     using Jaroszek.Poc.SignalR.Client.Interfaces;
 
     using Microsoft.Extensions.Logging;
@@ -8,7 +9,7 @@
 
     using System;
 
-    public class ShellBackgroundService : IBackgroundService
+    public sealed partial class ShellBackgroundService : IBackgroundService
     {
         private readonly ILogger<ShellBackgroundService> logger;
         private readonly IEventAggregator eventAggregator;
@@ -18,8 +19,12 @@
         public ShellBackgroundService(IEventAggregator eventAggregator, ILoggerFactory loggeFactory)
         {
             this.eventAggregator = eventAggregator;
-
             this.logger = loggeFactory.CreateLogger<ShellBackgroundService>();
+
+
+            this.eventAggregator.GetEvent<ConnectSignalRServerRequestEvent>()
+                .Subscribe(this.Connect, ThreadOption.BackgroundThread);
+
         }
 
         ~ShellBackgroundService()
