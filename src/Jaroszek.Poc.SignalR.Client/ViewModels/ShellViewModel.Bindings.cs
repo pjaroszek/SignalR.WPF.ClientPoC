@@ -7,7 +7,7 @@
         private string title = "SignalR Client";
         private string message;
 
-        private ObservableCollection<string> messagesReceived;
+        private ObservableCollection<string> messagesReceived = new ObservableCollection<string>();
 
         public string Title
         {
