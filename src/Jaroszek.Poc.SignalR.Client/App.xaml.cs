@@ -1,5 +1,7 @@
 ﻿namespace Jaroszek.Poc.SignalR.Client
 {
+    using Jaroszek.Poc.SignalR.Client.Interfaces;
+    using Jaroszek.Poc.SignalR.Client.Services;
     using Jaroszek.Poc.SignalR.Client.Views;
 
     using Microsoft.Extensions.Logging;
@@ -45,6 +47,7 @@
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<ILoggerFactory, SerilogLoggerFactory>();
+            containerRegistry.RegisterInstance<IBackgroundService>(this.Container.Resolve<ShellBackgroundService>());
         }
 
         protected override Window CreateShell() => this.Container.Resolve<ShellView>();

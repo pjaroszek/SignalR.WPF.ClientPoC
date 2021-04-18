@@ -7,7 +7,7 @@
 
     using System;
 
-    public class ShellViewModel : BindableBase, IDisposable
+    public sealed partial class ShellViewModel : BindableBase, IDisposable
     {
         private volatile bool disposed;
 
@@ -20,9 +20,9 @@
 
         }
 
-        public ShellViewModel(IEventAggregator eventAggregator, ILoggerFactory loggeFactory) : this()
+        public ShellViewModel(IEventAggregator eventAgregator, ILoggerFactory loggeFactory) : this()
         {
-            this.eventAgregator = eventAggregator;
+            this.eventAgregator = eventAgregator;
             this.logger = loggeFactory.CreateLogger<ShellViewModel>();
             this.loggerFactory = loggeFactory;
 

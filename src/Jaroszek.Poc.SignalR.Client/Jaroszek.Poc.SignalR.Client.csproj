@@ -165,6 +165,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Events\ConnectSignalRServerRequestEvent.cs" />
+    <Compile Include="Interfaces\IBackgroundService.cs" />
+    <Compile Include="Services\ShellBackgroundService.cs" />
+    <Compile Include="ViewModels\ShellViewModel.Behaviors.cs" />
+    <Compile Include="ViewModels\ShellViewModel.Bindings.cs" />
+    <Compile Include="ViewModels\ShellViewModel.Commands.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -199,9 +205,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Events\" />
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
