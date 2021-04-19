@@ -18,16 +18,14 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Button
-            Name="btnConnect"
+            Name="BtnConnect"
             Grid.Row="0"
             Width="120"
             Margin="44,45,0,0"
@@ -38,6 +36,7 @@
         <Button
             Name="btnSend"
             Grid.Row="0"
+            Grid.Column="0"
             Width="120"
             Margin="44,117,0,0"
             HorizontalAlignment="Left"
@@ -46,6 +45,7 @@
             Content="Send" />
         <TextBox
             Grid.Row="0"
+            Grid.Column="0"
             Width="120"
             Height="23"
             Margin="44,80,0,0"
@@ -53,26 +53,26 @@
             VerticalAlignment="Top"
             Text="{Binding Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             TextWrapping="Wrap" />
-
-
-
-
+        <ListView
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="10"
+            ItemsSource="{Binding MessagesReceived, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <Button
-            Name="btnDisconnected"
+            Name="BtnDisconnected"
             Grid.Row="0"
+            Grid.Column="0"
             Width="120"
-            Margin="44,45,0,0"
+            Margin="44,145,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Command="{Binding DisconnectCommand}"
-            Content="Connect" />
+            Content="Disconnect" />
+        <StatusBar Grid.Row="2" Grid.Column="0">
+            <StatusBarItem HorizontalAlignment="Left">
+                <Label Padding="0" Content="{Binding Status, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StatusBarItem>
 
-
-        <ListView
-            Grid.Row="1"
-            Margin="10"
-            ItemsSource="{Binding MessagesReceived, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-
+        </StatusBar>
     </Grid>
 </Window>

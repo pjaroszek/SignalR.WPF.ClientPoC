@@ -4,10 +4,18 @@
 
     public sealed partial class ShellViewModel
     {
+        private string status = "Disconnected";
         private string title = "SignalR Client";
         private string message;
 
         private ObservableCollection<string> messagesReceived = new ObservableCollection<string>();
+
+
+        public string Status
+        {
+            get => this.status;
+            set => this.SetProperty(ref this.status, value);
+        }
 
         public string Title
         {
